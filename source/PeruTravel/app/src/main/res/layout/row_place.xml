@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:weightSum="1">
+
+    <TextView
+        android:layout_width="0dp"
+        android:layout_weight="0.1"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        tools:text="A"
+        android:textSize="28sp"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:id="@+id/tviNick" />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_weight="0.5"
+        android:layout_width="0dp"
+        android:padding="4dp"
+        android:gravity="center_vertical"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Cañon del Colca"
+            android:textColor="@color/gray"
+            android:id="@+id/tviTitle" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="Lorem ...."
+            android:textColor="@color/gray"
+            android:id="@+id/tviDesc" />
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="0dp"
+        android:layout_weight="0.4"
+        android:padding="4dp"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="100dp"
+            android:layout_gravity="center"
+            android:background="@color/gray1"
+            android:id="@+id/iviPlace" />
+    </FrameLayout>
+
+</LinearLayout>
