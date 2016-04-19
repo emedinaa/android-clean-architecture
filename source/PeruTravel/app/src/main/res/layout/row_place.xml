@@ -50,7 +50,6 @@
             android:layout_height="wrap_content"
             android:minHeight="100dp"
             android:layout_gravity="center"
-            android:background="@color/gray1"
             android:id="@+id/iviPlace" />
     </FrameLayout>
 

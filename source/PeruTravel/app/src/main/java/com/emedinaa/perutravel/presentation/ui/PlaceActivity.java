@@ -1,7 +1,9 @@
 package com.emedinaa.perutravel.presentation.ui;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -32,12 +34,32 @@ public class PlaceActivity extends BaseActivity {
     }
 
     private void ui() {
+
+        setSupportActionBar(toolbar);
+        toolbar.setContentInsetsAbsolute(0, 0);
+
+        //events
+        toolbar.findViewById(R.id.iviBack).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                closeApp();
+            }
+        });
+
         imageLoaderHelper= new ImageLoaderHelper(ImageLoaderHelper.GLIDE);
+    }
+
+    private void closeApp() {
+        finish();
     }
 
     private void populate() {
         if(place!=null)
         {
+            int color= place!=null?(Color.parseColor(place.getHeaderColor())):(R.color.white);
+            toolbar.setBackgroundColor(color);
+            ((TextView)(toolbar.findViewById(R.id.tviToolbar))).setText(place.getNick());
+
             tviTitle.setText(place.getTitle());
             tviDesc.setText(place.getDesc());
             imageLoaderHelper.getLoader().load(place.getPhoto(),iviPlace);
