@@ -1,16 +1,16 @@
-package com.emedinaa.perutravel.data.datasource;
+package com.emedinaa.perutravel.data.datasource.db;
 
+import com.emedinaa.perutravel.data.datasource.PlaceDataStore;
 import com.emedinaa.perutravel.data.mapper.PlaceDataMapper;
 import com.emedinaa.perutravel.domain.repository.RepositoryCallback;
 
 /**
  * Created by emedinaa on 16/04/16.
  */
-public class DbPlaceDataSource implements PlaceDataSource {
-    private PlaceDataMapper placeDataMapper;
+public class DbPlaceDataStore implements PlaceDataStore {
 
-    public DbPlaceDataSource(PlaceDataMapper placeDataMapper) {
-        this.placeDataMapper = placeDataMapper;
+    public DbPlaceDataStore() {
+
     }
 
 

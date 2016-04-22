@@ -24,6 +24,7 @@ public class PlaceDataMapper {
         place.setPhoto(placeEntity.getPhoto());
         return place;
     }
+
     public List<Place> transformResponse(PlaceResponse placeResponse)
     {
         List<Place> places= new ArrayList<>();
@@ -31,6 +32,18 @@ public class PlaceDataMapper {
         for (PlaceEntity placeEntity:placeResponse.getData()) {
             places.add(transform(placeEntity));
         }
+        return places;
+    }
+
+    public List<Place> transformList(List<PlaceEntity> placeEntities)
+    {
+        List<Place> places= new ArrayList<>();
+        if(placeEntities==null)return  places;
+
+        for (PlaceEntity placeEntity:placeEntities) {
+            places.add(transform(placeEntity));
+        }
+
         return places;
     }
 }

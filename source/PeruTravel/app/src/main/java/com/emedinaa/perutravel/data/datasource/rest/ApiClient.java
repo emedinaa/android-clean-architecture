@@ -1,7 +1,6 @@
-package com.emedinaa.perutravel.data.datasource.request;
+package com.emedinaa.perutravel.data.datasource.rest;
 
 import com.emedinaa.perutravel.BuildConfig;
-import com.emedinaa.perutravel.data.model.BaseResponse;
 import com.emedinaa.perutravel.data.model.PlaceResponse;
 import com.squareup.okhttp.OkHttpClient;
 
@@ -12,7 +11,6 @@ import retrofit.RestAdapter;
 import retrofit.client.OkClient;
 import retrofit.http.GET;
 import retrofit.http.Headers;
-import retrofit.http.POST;
 
 /**
  * Created by emedinaa on 16/04/16.

@@ -3,8 +3,9 @@ package com.emedinaa.perutravel.presentation.presenter;
 import android.os.Bundle;
 import android.util.Log;
 
+import com.emedinaa.perutravel.data.datasource.PlaceDataStoreFactory;
 import com.emedinaa.perutravel.data.mapper.PlaceDataMapper;
-import com.emedinaa.perutravel.data.repository.PlaceManagerRepository;
+import com.emedinaa.perutravel.data.repository.PlaceDataRepository;
 import com.emedinaa.perutravel.domain.interactor.PlaceCallback;
 import com.emedinaa.perutravel.domain.interactor.PlaceInteractor;
 import com.emedinaa.perutravel.domain.model.Place;
@@ -36,7 +37,8 @@ public class PlacePresenter implements Presenter<MainView>, PlaceCallback{
     @Override
     public void addView(MainView view) {
         this.mainView= view;
-        PlaceRepository placeRepository= new PlaceManagerRepository(new PlaceDataMapper());
+        //PlaceRepository placeRepository= new PlaceManagerRepository(new PlaceDataMapper());
+        PlaceRepository placeRepository= new PlaceDataRepository(new PlaceDataStoreFactory(this.mainView.getContext()),new PlaceDataMapper());
         placeInteractor= new PlaceInteractor(placeRepository);
     }
 

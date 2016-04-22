@@ -1,9 +1,9 @@
-package com.emedinaa.perutravel.data.datasource;
+package com.emedinaa.perutravel.data.datasource.rest;
 
 import android.util.Log;
 
-import com.emedinaa.perutravel.data.datasource.PlaceDataSource;
-import com.emedinaa.perutravel.data.datasource.request.ApiClient;
+import com.emedinaa.perutravel.data.datasource.PlaceDataStore;
+import com.emedinaa.perutravel.data.datasource.rest.ApiClient;
 import com.emedinaa.perutravel.data.mapper.PlaceDataMapper;
 import com.emedinaa.perutravel.data.model.PlaceResponse;
 import com.emedinaa.perutravel.domain.model.Place;
@@ -18,14 +18,12 @@ import retrofit.client.Response;
 /**
  * Created by emedinaa on 16/04/16.
  */
-public class RestPlaceDataSource implements PlaceDataSource {
+public class RestPlaceDataStore implements PlaceDataStore {
 
     private static final String TAG = "RestPlaceDataS";
-    private PlaceDataMapper placeDataMapper;
     private ApiClient.ServicesApiInterface servicesApiInterface;
 
-    public RestPlaceDataSource(PlaceDataMapper placeDataMapper) {
-        this.placeDataMapper = placeDataMapper;
+    public RestPlaceDataStore() {
         servicesApiInterface= ApiClient.getMyApiClient();
     }
 
@@ -35,9 +33,7 @@ public class RestPlaceDataSource implements PlaceDataSource {
             @Override
             public void success(PlaceResponse placeResponse, Response response) {
                 if(placeResponse!=null) {
-                    List<Place> places= placeDataMapper.transformResponse(placeResponse);
-                    Log.v(TAG,"places "+places);
-                    repositoryCallback.onSuccess(places);
+                    repositoryCallback.onSuccess(placeResponse);
                 }else{
                     repositoryCallback.onError("");
                 }
