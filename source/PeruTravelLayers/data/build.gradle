@@ -1,0 +1,41 @@
+apply plugin: 'com.android.library'
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion "23.0.2"
+
+    defaultConfig {
+        minSdkVersion 14
+        targetSdkVersion 23
+        versionCode 1
+        versionName "1.0"
+    }
+    //publishNonDefault true
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    /*productFlavors {
+        devel {
+            buildConfigField 'String', 'HOST', '"http://api.backendless.com"'
+        }
+        prod {
+            buildConfigField 'String', 'HOST', '"http://api.backendless.com"'
+        }
+    }*/
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    testCompile 'junit:junit:4.12'
+    compile 'com.android.support:appcompat-v7:23.2.1'
+    //RETROFIT https://github.com/square/retrofit
+    compile 'com.squareup.retrofit:retrofit:1.9.0'
+    //GSON https://github.com/google/gson
+    compile 'com.google.code.gson:gson:2.6.2'
+    //OKHTTP
+    compile 'com.squareup.okhttp:okhttp:2.5.0'
+    compile project(':domain')
+}
