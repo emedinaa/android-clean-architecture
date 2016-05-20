@@ -20,6 +20,5 @@ Sample Android  app using clean architecture
  - Butterknife 7.0.1
 
 
-![Screenshot1](https://github.com/emedinaa/android-clean-architecture/blob/master/screenshot1.png?raw=true)
+![](https://github.com/emedinaa/android-clean-architecture/blob/master/video.gif?raw=true)
 
-![Screenshot2](https://github.com/emedinaa/android-clean-architecture/blob/master/screenshot2.png?raw=true)
