@@ -19,6 +19,8 @@ Sample Android  app using clean architecture
  - Gson 2.6.2
  - Butterknife 7.0.1
 
+4. Presentación
+  - Clean Architecture [https://docs.google.com/presentation/d/1Eg2V_0j0UO1V3gvYBMYomsMjS9cxD-p-CldPB68ZQxs/edit?usp=sharing](https://docs.google.com/presentation/d/1Eg2V_0j0UO1V3gvYBMYomsMjS9cxD-p-CldPB68ZQxs/edit?usp=sharing)
 
 ![](https://github.com/emedinaa/android-clean-architecture/blob/master/video.gif?raw=true)
 
