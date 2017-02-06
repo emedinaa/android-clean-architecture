@@ -22,7 +22,7 @@ Sample Android  app using clean architecture
  **Capa de Presentación**
  
    En la capa de presentación estoy usando el patrón Model-View-Presenter(MVP) para dividir responsabilidades.
-   En este caso el proyecto de la APP se comporta capa de presentación y depende del SDK de Android.
+   En este caso el proyecto de la APP se comporta como la  capa de presentación y depende del SDK de Android.
    
    Elementos :
    
@@ -34,8 +34,8 @@ Sample Android  app using clean architecture
    
  **Capa de Datos**
  
-   En la capa de datos,es un módulo Android y  estoy usando Retrofit para consumir servicios Rest de BackendLess. 
-   Esta capa tambien tiene entidades relacionadas a los servicios REST y base de Datos local.
+   La capa de datos es un módulo Android y uso Retrofit para consumir servicios REST de BackendLess. 
+   En esta capa tambien se encuentran entidades relacionadas a los servicios REST y a la  base de Datos local(sqlite).
    
    Elementos :
       
@@ -43,11 +43,13 @@ Sample Android  app using clean architecture
       
       - Implementación de los Interactors dependiente del origen de datos
       
-      - Mappers, para convertir las entidades de datos a entidades de dominio.
+      - Mappers, permite convertir las entidades de datos a entidades de dominio.
    
    
  **Capa de Dominio**
-   En la capa de dominio ,es un módulo Java y  están declaradas las entidades con que construyo mi applicación. Que son independientes de la capa de datos. Para poder comunicar esta capa con las demas uso interfaces.
+ 
+  La capa de dominio es un módulo Java ,  donde se encuentran las entidades base para construir la App . Estas entidades  deben ser independientes de las entidades usadas en la capa de datos.
+ Respecto a la comunicación con otras capas, utilizo interfaces , ya sea para declarar casos de uso en los interactor o como callbacks para la respuesta a operaciones en las capas de presentación y de datos.
    
    Elementos :
    
