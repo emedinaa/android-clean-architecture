@@ -32,7 +32,8 @@ Sample Android  app using clean architecture
       
    - Model
    
- **Capa de Datos**
+ 
+**Capa de Datos**
  
    La capa de datos es un módulo Android , uso Retrofit para consumir servicios REST de BackendLess y SqLite para la persistencia local.
    En esta capa tambien se encuentran entidades relacionadas a los servicios y a la base de Datos .
@@ -46,7 +47,7 @@ Sample Android  app using clean architecture
    - Mappers, permite convertir las entidades de datos a entidades de dominio.
    
    
- **Capa de Dominio**
+**Capa de Dominio**
  
   La capa de dominio es un módulo Java ,  donde se encuentran las entidades base para construir la App . Estas entidades  deben ser independientes de las entidades usadas en la capa de datos.
  Respecto a la comunicación con otras capas, utilizo interfaces , ya sea para declarar casos de uso en los interactor o como callbacks para la respuesta a operaciones en las capas de presentación y de datos.
