@@ -1,14 +1,12 @@
 package com.emedinaa.perutravel.data.datasource.rest;
 
-import android.util.Log;
-
 import com.emedinaa.perutravel.data.datasource.PlaceDataStore;
 import com.emedinaa.perutravel.data.model.PlaceResponse;
 import com.emedinaa.perutravel.domain.repository.RepositoryCallback;
 
-import retrofit.Callback;
-import retrofit.RetrofitError;
-import retrofit.client.Response;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * Created by emedinaa on 16/04/16.
@@ -24,26 +22,35 @@ public class RestPlaceDataStore implements PlaceDataStore {
 
     @Override
     public void loadPlaces(final RepositoryCallback repositoryCallback) {
-        servicesApiInterface.places(new Callback<PlaceResponse>() {
+
+        Call<PlaceResponse> call= servicesApiInterface.places();
+        call.enqueue(new Callback<PlaceResponse>() {
             @Override
-            public void success(PlaceResponse placeResponse, Response response) {
-                if(placeResponse!=null) {
-                    repositoryCallback.onSuccess(placeResponse);
+            public void onResponse(Call<PlaceResponse> call, Response<PlaceResponse> response) {
+                if(response.isSuccessful()){
+                    PlaceResponse placeResponse= response.body();
+                    if(placeResponse!=null){
+                        repositoryCallback.onSuccess(placeResponse);
+                    }else{
+                        repositoryCallback.onError("");
+                    }
                 }else{
                     repositoryCallback.onError("");
                 }
             }
 
             @Override
-            public void failure(RetrofitError error) {
-                String message="";
-                if(error!=null) {
-                    message= error.getMessage();
+            public void onFailure(Call<PlaceResponse> call, Throwable t) {
+                String message;
+                try {
+                    message= new StringBuffer().append(t.getMessage()).toString();
+                }catch (NullPointerException e) {
+                    message=e.getMessage();
                 }
-                Log.v(TAG,"error "+message);
                 repositoryCallback.onError(message);
             }
         });
+
     }
 
 }

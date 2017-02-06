@@ -1,15 +1,13 @@
 package com.emedinaa.perutravel.data.datasource.rest;
 
 import com.emedinaa.perutravel.data.model.PlaceResponse;
-import com.squareup.okhttp.OkHttpClient;
-
-import java.util.concurrent.TimeUnit;
-
-import retrofit.Callback;
-import retrofit.RestAdapter;
-import retrofit.client.OkClient;
-import retrofit.http.GET;
-import retrofit.http.Headers;
+import okhttp3.OkHttpClient;
+import okhttp3.logging.HttpLoggingInterceptor;
+import retrofit2.Call;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+import retrofit2.http.GET;
+import retrofit2.http.Headers;
 
 /**
  * Created by emedinaa on 16/04/16.
@@ -17,19 +15,24 @@ import retrofit.http.Headers;
 public class ApiClient {
 
     private static final String TAG = "ApiClient";
+    private static final String API_BASE_URL="http://api.backendless.com";
     private static ServicesApiInterface servicesApiInterface;
+    private static OkHttpClient.Builder httpClient;
+
+
 
     public static ServicesApiInterface getMyApiClient() {
 
         if (servicesApiInterface == null) {
 
-            RestAdapter restAdapter = new RestAdapter.Builder()
-                    .setEndpoint("http://api.backendless.com")
-                    .setClient(new OkClient(getClient()))
-                    .setLogLevel(RestAdapter.LogLevel.FULL)
-                    .build();
+            Retrofit.Builder builder =new Retrofit.Builder()
+                    .baseUrl(API_BASE_URL)
+                    .addConverterFactory(GsonConverterFactory.create());
+            httpClient =new OkHttpClient.Builder();
+            httpClient.addInterceptor(interceptor());
 
-            servicesApiInterface = restAdapter.create(ServicesApiInterface.class);
+            Retrofit retrofit = builder.client(httpClient.build()).build();
+            servicesApiInterface = retrofit.create(ServicesApiInterface.class);
         }
         return servicesApiInterface;
     }
@@ -38,19 +41,19 @@ public class ApiClient {
 
         @Headers({
                 "Content-Type: application/json",
-                "application-id: DA9284B5-938D-38A8-FFB5-ED28F8E07A00",
-                "secret-key: 513FB962-5397-99F4-FF6D-F56D4FAF9B00",
+                "application-id: E324073C-E9A4-FE14-FFFE-BFDA5C701700",
+                "secret-key: 169F9E06-12BA-4B02-FF83-C97E29C5BE00",
                 "application-type: REST"
         })
         //
         @GET("/v1/data/Place")
-        void places(Callback<PlaceResponse> callback);
+        Call<PlaceResponse> places();
     }
 
-    private static OkHttpClient getClient() {
-        OkHttpClient client = new OkHttpClient();
-        client.setConnectTimeout(2, TimeUnit.MINUTES);
-        client.setReadTimeout(2, TimeUnit.MINUTES);
-        return client;
+
+    private  static HttpLoggingInterceptor interceptor(){
+        HttpLoggingInterceptor httpLoggingInterceptor= new HttpLoggingInterceptor();
+        httpLoggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
+        return httpLoggingInterceptor;
     }
 }
