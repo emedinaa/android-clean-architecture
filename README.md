@@ -21,7 +21,7 @@ Sample Android  app using clean architecture
 
  **Capa de Presentación**
  
-   En la capa de presentación estoy usando el patrón Model-View-Presenter(MVP) para dividir responsabilidades.
+   En la capa de presentación uso el patrón Model-View-Presenter(MVP) para dividir responsabilidades.
    En este caso el proyecto de la APP se comporta como la  capa de presentación y depende del SDK de Android.
    
    Elementos :
@@ -34,8 +34,8 @@ Sample Android  app using clean architecture
    
  **Capa de Datos**
  
-   La capa de datos es un módulo Android y uso Retrofit para consumir servicios REST de BackendLess. 
-   En esta capa tambien se encuentran entidades relacionadas a los servicios REST y a la  base de Datos local(sqlite).
+   La capa de datos es un módulo Android , uso Retrofit para consumir servicios REST de BackendLess y SqLite para la persistencia local.
+   En esta capa tambien se encuentran entidades relacionadas a los servicios y a la base de Datos .
    
    Elementos :
       
