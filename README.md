@@ -16,23 +16,20 @@ Sample Android  app using clean architecture
    Esta capa tambien tiene entidades relacionadas a los servicios REST y base de Datos local.
    
    Elementos :
-   
-   * Entidades de Datos
-   
-   * Implementación de los Interactors dependiente del origen de datos
-   
-   * Mappers, para convertir las entidades de datos a entidades de dominio.
+         * Entidades de Datos
+         * Implementación de los Interactors dependiente del origen de datos
+         * Mappers, para convertir las entidades de datos a entidades de dominio.
    
    
  - **Capa de Dominio**
    En la capa de dominio ,es un módulo Java y  están declaradas las entidades con que construyo mi applicación. Que son independientes de la capa de datos. Para poder comunicar esta capa con las demas uso interfaces.
    
    Elementos :
-   * Entidades de Dominio
+      * Entidades de Dominio
    
-   * Interactors
+      * Interactors
    
-   * Callbacks 
+      * Callbacks 
    
 3. Ejemplo
 
