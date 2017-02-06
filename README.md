@@ -7,16 +7,45 @@ Sample Android  app using clean architecture
 
 2. Clean Architecture en Android
 
+ - **Capa de Presentación**
+   En la capa de presentación estoy usando el patrón MVP para dividir responsabilidades.
+   En este caso estoy usando el proyecto de la APP como capa de presentación y es proyecto Android
+   
+ - **Capa de Datos**
+   En la capa de datos,es un módulo Android y  estoy usando Retrofit para consumir servicios Rest de BackendLess. 
+   Esta capa tambien tiene entidades relacionadas a los servicios REST y base de Datos local.
+   
+   Elementos :
+   
+   * Entidades de Datos
+   
+   * Implementación de los Interactors dependiente del origen de datos
+   
+   * Mappers, para convertir las entidades de datos a entidades de dominio.
+   
+   
+ - **Capa de Dominio**
+   En la capa de dominio ,es un módulo Java y  están declaradas las entidades con que construyo mi applicación. Que son independientes de la capa de datos. Para poder comunicar esta capa con las demas uso interfaces.
+   
+   Elementos :
+   * Entidades de Dominio
+   
+   * Interactors
+   
+   * Callbacks 
+   
 3. Ejemplo
 
  Perú Travel APP
  
  Dependencias :
  
- - Retrofit 1.9 
+ - Retrofit 2.0
  - OkHttp 2.5.0
+ - OkHttp Logging 3.3.1
+ - OkHttp Gson 2.1.0
+ 
  - Glide 3.7.0
- - Gson 2.6.2
  - Butterknife 7.0.1
 
 4. Presentación
