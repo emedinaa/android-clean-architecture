@@ -17,7 +17,25 @@ allprojects {
         jcenter()
     }
 }
+//global variables
+ext{
+    //sdk and tools
+    minSdkVersion = 14
+    targetSdkVersion = 23
+    compileSdkVersion = 23
+    buildToolsVersion = '23.0.3'
+    supportLibraryVersion= '23.4.0'
 
+    //dependencies versions
+    retrofit= '2.1.0'
+    okhttpLogging='3.3.1'
+    okhttpGson= '2.1.0'
+    okhttp = '2.5.0'
+
+    glide='3.7.0'
+    butterknife= '7.0.1'
+
+}
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
