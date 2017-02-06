@@ -1,7 +1,7 @@
 # android-clean-architecture
 Sample Android  app using clean architecture
 
-1. ## Principios de Clean Architecture 
+## 1. Principios de Clean Architecture 
 
    - [Uncle bob´s Clean Architecture ](https://blog.8thlight.com/uncle-bob/2012/08/13/the-clean-architecture.html)
    
@@ -17,7 +17,7 @@ Sample Android  app using clean architecture
       
       * Principio de Inversión de Dependencias ( D: Dependency inversion principle))
          
-2. Clean Architecture en Android
+## 2. Clean Architecture en Android
 
  **Capa de Presentación**
  
@@ -59,10 +59,10 @@ Sample Android  app using clean architecture
          
      - Callbacks 
          
-3. Presentación
+## 3. Presentación
   - Clean Architecture [https://docs.google.com/presentation/d/1Eg2V_0j0UO1V3gvYBMYomsMjS9cxD-p-CldPB68ZQxs/edit?usp=sharing](https://docs.google.com/presentation/d/1Eg2V_0j0UO1V3gvYBMYomsMjS9cxD-p-CldPB68ZQxs/edit?usp=sharing)
 
-4. Ejemplo
+## 4. Ejemplo
 
   - Perú Travel APP
   
