@@ -21,8 +21,8 @@ Sample Android  app using clean architecture
 
  **Capa de Presentación**
  
-   En la capa de presentación estoy usando el patrón MVP para dividir responsabilidades.
-   En este caso el proyecto de la APP se comporta capa de presentación y es proyecto Android.
+   En la capa de presentación estoy usando el patrón Model-View-Presenter(MVP) para dividir responsabilidades.
+   En este caso el proyecto de la APP se comporta capa de presentación y depende del SDK de Android.
    
    Elementos :
    
