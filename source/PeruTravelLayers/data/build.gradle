@@ -10,21 +10,25 @@ android {
         versionCode 1
         versionName "1.0"
     }
-    //publishNonDefault true
+
+
     buildTypes {
+        def Properties serverProperties = new Properties()
+        serverProperties.load(new FileInputStream(file('../server.properties')))
+
+        debug{
+            buildConfigField "String", "API_URL", serverProperties["BACKENDLESS_PATH"]
+            buildConfigField "String", "APP_ID", serverProperties["BACKENDLESS_APP_ID"]
+            buildConfigField "String", "REST_KEY", serverProperties["BACKENDLESS_REST_KEY"]
+        }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            buildConfigField "String", "API_URL", serverProperties["BACKENDLESS_PATH"]
+            buildConfigField "String", "APP_ID", serverProperties["BACKENDLESS_APP_ID"]
+            buildConfigField "String", "REST_KEY", serverProperties["BACKENDLESS_REST_KEY"]
         }
     }
-    /*productFlavors {
-        devel {
-            buildConfigField 'String', 'HOST', '"http://api.backendless.com"'
-        }
-        prod {
-            buildConfigField 'String', 'HOST', '"http://api.backendless.com"'
-        }
-    }*/
 }
 
 dependencies {
