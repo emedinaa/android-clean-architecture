@@ -26,11 +26,11 @@ Sample Android  app using clean architecture
    
    Elementos :
    
-      - Presenter
+   - Presenter
       
-      - View
+   - View
       
-      - Model
+   - Model
    
  **Capa de Datos**
  
@@ -39,11 +39,11 @@ Sample Android  app using clean architecture
    
    Elementos :
       
-      - Entidades de Datos
+   - Entidades de Datos
       
-      - Implementación de los Interactors dependiente del origen de datos
+   - Implementación de los Interactors dependiente del origen de datos
       
-      - Mappers, permite convertir las entidades de datos a entidades de dominio.
+   - Mappers, permite convertir las entidades de datos a entidades de dominio.
    
    
  **Capa de Dominio**
@@ -53,11 +53,11 @@ Sample Android  app using clean architecture
    
   Elementos :
   
-      - Entidades de Dominio
+  - Entidades de Dominio
       
-      - Interactors
+  - Interactors
       
-      - Callbacks 
+  - Callbacks 
          
 ## 3. Presentación
   - Clean Architecture [https://docs.google.com/presentation/d/1Eg2V_0j0UO1V3gvYBMYomsMjS9cxD-p-CldPB68ZQxs/edit?usp=sharing](https://docs.google.com/presentation/d/1Eg2V_0j0UO1V3gvYBMYomsMjS9cxD-p-CldPB68ZQxs/edit?usp=sharing)
