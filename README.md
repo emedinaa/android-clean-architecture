@@ -38,6 +38,7 @@ Sample Android  app using clean architecture
    En esta capa tambien se encuentran entidades relacionadas a los servicios y a la base de Datos .
    
    Elementos :
+      
       * Entidades de Datos
       
       * Implementación de los Interactors dependiente del origen de datos
@@ -51,6 +52,7 @@ Sample Android  app using clean architecture
  Respecto a la comunicación con otras capas, utilizo interfaces , ya sea para declarar casos de uso en los interactor o como callbacks para la respuesta a operaciones en las capas de presentación y de datos.
    
   Elementos :
+  
       * Entidades de Dominio
          
       * Interactors
