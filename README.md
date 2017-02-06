@@ -3,26 +3,34 @@ Sample Android  app using clean architecture
 
 1. ## Principios de Clean Architecture 
 
-   - [Uncle bob´s Clean Architecture link](https://blog.8thlight.com/uncle-bob/2012/08/13/the-clean-architecture.html)
+   - [Uncle bob´s Clean Architecture ](https://blog.8thlight.com/uncle-bob/2012/08/13/the-clean-architecture.html)
    
    - Principios S.O.L.I.D
       
-      * Principio de Responsabilidad Única (S: Single responsability)
+      * Principio de Responsabilidad Única (S: Single responsibility principle)
       
-      * Principio Abierto/Cerrado (O: Open/Close)
+      * Principio de Abierto/Cerrado (O: Open/closed principle)
       
-      * Principio de Sustitución de Liskov ( L: Sustitution liskov)
+      * Principio de Sustitución de Liskov ( L: Liskov substitution principle)
       
-      * Principio de Segregación de Interfaces ( I: Segregation interface)
+      * Principio de Segregación de Interfaces ( I: Interface segregation principle)
       
-      * Principio de Inversión de Dependencias ( D: Dependencies Inversion)
+      * Principio de Inversión de Dependencias ( D: Dependency inversion principle))
          
 2. Clean Architecture en Android
 
  **Capa de Presentación**
  
    En la capa de presentación estoy usando el patrón MVP para dividir responsabilidades.
-   En este caso estoy usando el proyecto de la APP como capa de presentación y es proyecto Android
+   En este caso el proyecto de la APP se comporta capa de presentación y es proyecto Android.
+   
+   Elementos :
+   
+      - Presenter
+      
+      - View
+      
+      - Model
    
  **Capa de Datos**
  
@@ -43,11 +51,11 @@ Sample Android  app using clean architecture
    
    Elementos :
    
-         - Entidades de Dominio
+      - Entidades de Dominio
          
-         - Interactors
+      - Interactors
          
-         - Callbacks 
+      - Callbacks 
          
 3. Presentación
   - Clean Architecture [https://docs.google.com/presentation/d/1Eg2V_0j0UO1V3gvYBMYomsMjS9cxD-p-CldPB68ZQxs/edit?usp=sharing](https://docs.google.com/presentation/d/1Eg2V_0j0UO1V3gvYBMYomsMjS9cxD-p-CldPB68ZQxs/edit?usp=sharing)
