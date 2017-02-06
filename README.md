@@ -38,8 +38,8 @@ Sample Android  app using clean architecture
    En esta capa tambien se encuentran entidades relacionadas a los servicios y a la base de Datos .
    
    Elementos :
-      
-      * Entidades de Datos
+     
+     * Entidades de Datos
       
       * Implementación de los Interactors dependiente del origen de datos
       
