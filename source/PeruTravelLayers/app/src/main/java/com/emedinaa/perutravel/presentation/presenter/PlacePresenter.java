@@ -1,15 +1,10 @@
 package com.emedinaa.perutravel.presentation.presenter;
 
 import android.os.Bundle;
-import android.util.Log;
 
-import com.emedinaa.perutravel.data.datasource.PlaceDataStoreFactory;
-import com.emedinaa.perutravel.data.mapper.PlaceDataMapper;
-import com.emedinaa.perutravel.data.repository.PlaceDataRepository;
 import com.emedinaa.perutravel.domain.interactor.PlaceCallback;
 import com.emedinaa.perutravel.domain.interactor.PlaceInteractor;
 import com.emedinaa.perutravel.domain.model.Place;
-import com.emedinaa.perutravel.domain.repository.PlaceRepository;
 import com.emedinaa.perutravel.presentation.view.MainView;
 
 import java.util.List;
@@ -20,13 +15,18 @@ import java.util.List;
 public class PlacePresenter implements Presenter<MainView>, PlaceCallback{
     private static final String TAG = "PlacePresenter";
     private MainView mainView;
-    private PlaceInteractor placeInteractor;
+    private final PlaceInteractor placeInteractor;
+
+    public PlacePresenter(PlaceInteractor placeInteractor) {
+        this.placeInteractor = placeInteractor;
+    }
 
     public void loadPlaces()
     {
         this.mainView.showLoading();
         placeInteractor.loadPlaces(this);
     }
+
     public void selectedPlace(Place place)
     {
         Bundle bundle= new Bundle();
@@ -37,8 +37,6 @@ public class PlacePresenter implements Presenter<MainView>, PlaceCallback{
     @Override
     public void addView(MainView view) {
         this.mainView= view;
-        PlaceRepository placeRepository= new PlaceDataRepository(new PlaceDataStoreFactory(this.mainView.getContext()),new PlaceDataMapper());
-        placeInteractor= new PlaceInteractor(placeRepository);
     }
 
     @Override
@@ -48,7 +46,6 @@ public class PlacePresenter implements Presenter<MainView>, PlaceCallback{
 
     @Override
     public void onPlaceSuccess(List<Place> places) {
-        Log.v(TAG, "onPlaceSuccess " + places);
         this.mainView.hideLoading();
         this.mainView.renderPlaces(places);
     }

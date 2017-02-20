@@ -1,6 +1,5 @@
 package com.emedinaa.perutravel.presentation.ui;
 
-import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -8,7 +7,12 @@ import android.util.Log;
 import android.view.View;
 
 import com.emedinaa.perutravel.R;
+import com.emedinaa.perutravel.data.datasource.PlaceDataStoreFactory;
+import com.emedinaa.perutravel.data.mapper.PlaceDataMapper;
+import com.emedinaa.perutravel.data.repository.PlaceDataRepository;
+import com.emedinaa.perutravel.domain.interactor.PlaceInteractor;
 import com.emedinaa.perutravel.domain.model.Place;
+import com.emedinaa.perutravel.domain.repository.PlaceRepository;
 import com.emedinaa.perutravel.presentation.adapter.PlaceAdapter;
 import com.emedinaa.perutravel.presentation.presenter.PlacePresenter;
 import com.emedinaa.perutravel.presentation.ui.recycler.MarginDecoration;
@@ -37,11 +41,17 @@ public class MainActivity extends BaseActivity implements MainView {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         injectView();
-        placePresenter= new PlacePresenter();
-        placePresenter.addView(this);
+        setupPresenter();
         ui();
 
         loadPlaces();
+    }
+
+    private void setupPresenter() {
+        PlaceRepository placeRepository= new PlaceDataRepository(new PlaceDataStoreFactory(getApplicationContext()),new PlaceDataMapper());
+        PlaceInteractor placeInteractor= new PlaceInteractor(placeRepository);
+        placePresenter= new PlacePresenter(placeInteractor);
+        placePresenter.addView(this);
     }
 
     private void loadPlaces() {
@@ -97,7 +107,8 @@ public class MainActivity extends BaseActivity implements MainView {
     }
 
     @Override
-    public Context getContext() {
-        return this;
+    protected void onDestroy() {
+        if(placePresenter!=null){placePresenter.removeView(this);}
+        super.onDestroy();
     }
 }

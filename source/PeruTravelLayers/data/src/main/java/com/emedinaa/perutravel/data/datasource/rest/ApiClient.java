@@ -3,15 +3,12 @@ package com.emedinaa.perutravel.data.datasource.rest;
 import com.emedinaa.perutravel.data.BuildConfig;
 import com.emedinaa.perutravel.data.model.PlaceResponse;
 
-import java.util.Map;
-
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Call;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.http.GET;
-import retrofit2.http.HeaderMap;
 import retrofit2.http.Headers;
 
 /**

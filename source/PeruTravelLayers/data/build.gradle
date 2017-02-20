@@ -29,6 +29,7 @@ android {
             buildConfigField "String", "REST_KEY", serverProperties["BACKENDLESS_REST_KEY"]
         }
     }
+
 }
 
 dependencies {
